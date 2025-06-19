@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inga Ntlonti - Modeling Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The SPA is designed as a top-to-bottom narrative flow, ideal for a portfolio. It starts with a high-impact hero section with the model's name. It's followed by an 'About & Statistics' section for quick facts, an interactive 'Gallery' to showcase the model's range (using a modal for focused viewing), a 'Video' section for dynamic presentation, and a final 'Contact' footer. This linear, section-based structure is highly intuitive for casting directors and clients who need to quickly assess a model's suitability, making all key information accessible within a single scroll. -->
+    <!-- Visualization & Content Choices: The portfolio relies on a clean, visual hierarchy rather than data charts. Report Info: 4 photo types -> Goal: Showcase versatility -> Viz: Interactive Photo Grid/Modal -> Interaction: Click thumbnails to open a full-screen modal view of the image. Justification: This is a standard, effective UX pattern for portfolios that focuses user attention on one image at a time without leaving the page. Method: HTML/CSS for grid, JS for modal interaction. Report Info: Social links -> Goal: Provide contact points -> Viz: Icon-based links in the footer. Justification: Icons are universally understood and space-efficient. Method: Inline SVG icons within HTML anchor tags. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm Off-White */
+            color: #4A4A4A; /* Dark Warm Gray */
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+             background-image: url('https://placehold.co/1200x800/d1c7bd/4A4A4A?text=Inga+Ntlonti');
+             background-size: cover;
+             background-position: center;
+        }
+        .gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center text-white relative">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 text-center p-4">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight">Inga Ntlonti</h1>
+            <p class="mt-4 text-xl md:text-2xl font-light">Model Portfolio</p>
+            <a href="#about" class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
+                <svg class="w-8 h-8 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 md:px-12 py-16 md:py-24 space-y-20 md:space-y-32">
+
+        <!-- About & Statistics Section -->
+        <section id="about" class="scroll-mt-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800">About Me</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
+                    This section provides a glimpse into my professional aspirations and key physical statistics, offering a comprehensive overview for casting and campaign considerations.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div class="text-left text-gray-700 space-y-4 text-base md:text-lg leading-relaxed">
+                     <p>I am a versatile and passionate aspiring model with a strong presence and a keen eye for detail, eager to bring my unique look and energy to diverse campaigns.</p>
+                     <p>I am particularly interested in editorial and commercial work and am committed to delivering captivating and professional results that align with brand and creative visions.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">Statistics</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex justify-between border-b pb-2"><span>Height:</span> <span class="font-semibold">173cm / 5' 8"</span></li>
+                        <li class="flex justify-between border-b pb-2"><span>Weight:</span> <span class="font-semibold">57kg / 125 lbs</span></li>
+                        <li class="flex justify-between border-b pb-2"><span>Dress Size:</span> <span class="font-semibold">32 (EU) / 4 (US) / 8 (UK)</span></li>
+                        <li class="flex justify-between border-b pb-2"><span>Skin Tone:</span> <span class="font-semibold">Brown</span></li>
+                        <li class="flex justify-between border-b pb-2"><span>Eye Color:</span> <span class="font-semibold">Black</span></li>
+                        <li class="flex justify-between border-b pb-2"><span>Waist:</span> <span class="font-semibold">66cm / 26 in</span></li>
+                        <li class="flex justify-between"><span>Hips:</span> <span class="font-semibold">91cm / 36 in</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Gallery Section -->
+        <section id="gallery" class="scroll-mt-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800">Portfolio</h2>
+                 <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
+                    Explore a curated collection of my work. Click on any image to view it in full detail. This gallery showcases my versatility across different styles, from commercial headshots to full-body editorial looks.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="gallery-item cursor-pointer group" data-title="Headshot" data-img-src="https://placehold.co/800x1000/e0d8ce/4A4A4A?text=Headshot">
+                    <img src="https://placehold.co/800x1000/e0d8ce/4A4A4A?text=Headshot" alt="Headshot of Inga Ntlonti" class="gallery-img w-full h-full object-cover rounded-lg shadow-md">
+                    <p class="text-center mt-2 text-lg font-medium opacity-0 group-hover:opacity-100 transition-opacity">Headshot</p>
+                </div>
+                <div class="gallery-item cursor-pointer group" data-title="Full Body Shot" data-img-src="https://placehold.co/800x1000/d1c7bd/4A4A4A?text=Full+Body">
+                    <img src="https://placehold.co/800x1000/d1c7bd/4A4A4A?text=Full+Body" alt="Full body shot of Inga Ntlonti" class="gallery-img w-full h-full object-cover rounded-lg shadow-md">
+                    <p class="text-center mt-2 text-lg font-medium opacity-0 group-hover:opacity-100 transition-opacity">Full Body Shot</p>
+                </div>
+                <div class="gallery-item cursor-pointer group" data-title="Half Body Shot" data-img-src="https://placehold.co/800x1000/c2b7a8/4A4A4A?text=Half+Body">
+                    <img src="https://placehold.co/800x1000/c2b7a8/4A4A4A?text=Half+Body" alt="Half body shot of Inga Ntlonti" class="gallery-img w-full h-full object-cover rounded-lg shadow-md">
+                    <p class="text-center mt-2 text-lg font-medium opacity-0 group-hover:opacity-100 transition-opacity">Half Body Shot</p>
+                </div>
+                <div class="gallery-item cursor-pointer group" data-title="Smiling Shot" data-img-src="https://placehold.co/800x1000/b3a799/4A4A4A?text=Smiling">
+                    <img src="https://placehold.co/800x1000/b3a799/4A4A4A?text=Smiling" alt="Smiling shot of Inga Ntlonti" class="gallery-img w-full h-full object-cover rounded-lg shadow-md">
+                    <p class="text-center mt-2 text-lg font-medium opacity-0 group-hover:opacity-100 transition-opacity">Smiling Shot</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Video Section -->
+        <section id="video" class="scroll-mt-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800">Showreel</h2>
+                 <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">
+                    See my presence and movement in action. This short video provides a dynamic look at my capabilities on camera, complementing the still photography in my portfolio.
+                </p>
+            </div>
+            <div class="aspect-w-16 aspect-h-9 max-w-4xl mx-auto bg-gray-200 rounded-lg shadow-xl overflow-hidden">
+                <!-- In a real application, replace this with a real video embed from YouTube or Vimeo -->
+                 <div class="flex items-center justify-center h-full">
+                    <p class="text-gray-500">Video coming soon</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer & Contact Section -->
+    <footer id="contact" class="bg-gray-800 text-white scroll-mt-16">
+        <div class="container mx-auto px-6 md:px-12 py-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold">Get In Touch</h2>
+            <p class="mt-4 max-w-xl mx-auto text-gray-300">
+                I am available for collaborations and bookings. Please reach out via email or connect with me on social media.
+            </p>
+            <div class="mt-8 flex justify-center items-center space-x-6">
+                <a href="mailto:businessingaa@gmail.com" class="hover:text-gray-300 transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                </a>
+                <a href="https://instagram.com/itisingaa" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM5.5 10a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM10 12a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path><path d="M13.5 6a.5.5 0 100-1 .5.5 0 000 1z"></path></svg>
+                </a>
+                <a href="https://tiktok.com/@itisingaa" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
+                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M11.383 6.672c.243-.399.236-.91-.02-1.3l-.002-.003a.91.91 0 00-1.303-.223l-2.48 2.025V4.75a.75.75 0 00-1.5 0v5.533a.75.75 0 00.75.75h5.533a.75.75 0 000-1.5H9.64L11.383 6.672z"></path><path d="M5.5 2.5a3 3 0 100 6 3 3 0 000-6zM4 5.5a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"></path><path d="M12.5 11.5a3 3 0 100 6 3 3 0 000-6zm-1.5 3a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"></path></svg>
+                </a>
+                <a href="https://linkedin.com/in/inga-ntlonti" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM6.5 15V8.5H4.5V15h2zM5.5 7.5a1 1 0 110-2 1 1 0 010 2zM15.5 15H13.5v-3.4c0-.8-.3-1.4-.9-1.4-.6 0-.9.4-1.1.8-.1.2-.1.4-.1.6V15H9.5V8.5h2v.9c.3-.5.8-1 1.7-1 1.2 0 2.3.8 2.3 2.6V15z" clip-rule="evenodd"></path></svg>
+                </a>
+            </div>
+            <div class="mt-8 text-gray-400">
+                <p>Phone: 073 499 0017</p>
+                <p class="mt-4 text-sm">&copy; 2025 Inga Ntlonti. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Gallery -->
+    <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
+        <div class="relative bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col">
+            <h3 id="modalTitle" class="text-xl font-bold p-4 border-b text-gray-800"></h3>
+            <div class="p-4 overflow-auto flex-grow">
+                <img id="modalImage" src="" alt="Portfolio image" class="w-full h-auto object-contain max-h-[75vh]">
+            </div>
+            <button id="closeModal" class="absolute -top-4 -right-4 bg-white text-gray-800 rounded-full h-10 w-10 flex items-center justify-center text-2xl font-bold shadow-lg hover:bg-gray-200">&times;</button>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const modal = document.getElementById('galleryModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const closeModalBtn = document.getElementById('closeModal');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.dataset.imgSrc;
+                    const imgTitle = item.dataset.title;
+                    modalImage.src = imgSrc;
+                    modalImage.alt = imgTitle;
+                    modalTitle.textContent = imgTitle;
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                modalImage.src = '';
+            };
+
+            closeModalBtn.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
